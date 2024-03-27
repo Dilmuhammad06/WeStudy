@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<section class="heading-page header-text" id="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h6>Here are our upcoming meetings</h6>
+        <h2>Upcoming Meetings</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="meetings-page" id="meetings">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="filters">
+              <ul>
+                <li data-filter="*"  class="active">All Meetings</li>
+                <li data-filter=".soon">Soon</li>
+                <li data-filter=".imp">Important</li>
+                <li data-filter=".att">Attractive</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="row grid">
+              {% for event in events %}
+              <div class="col-lg-4 templatemo-item-col all soon">
+                <div class="meeting-item">
+                  <div class="thumb">
+                    <a href="{% url 'event_detail' event.id %}"><img src="{{event.image.url}}" style="height:200px" alt=""></a>
+                  </div>
+                  <div class="down-content">
+                    <div class="date">
+                      <h6>{{ event.date|date:"M" }} <span>{{ event.date|date:"d" }}</span></h6>
+                    </div>
+                    <a href="meeting-details.html"><h4>{{event.name}}</h4></a>
+                    <p>{{event.description}}</p>
+                  </div>
+                </div>
+              </div>
+              {% endfor %}
+              <!-- Add more meeting items here -->
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="pagination">
+              <ul>
+                <li><a href="#">1</a></li>
+                <li class="active"><a href="#">2</a></li>
+                <li><a href="#">3</a></li>
+                <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+      <p>Copyright © 2024 DizenStudios.</p>
+  </div>
+</section>
+
+{% endblock %}

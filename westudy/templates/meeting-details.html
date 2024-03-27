@@ -1,0 +1,84 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+
+<section class="heading-page header-text" id="top">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <h6>Get all details</h6>
+        <h2>{{event.name}}</h2>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="meetings-page" id="meetings">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="meeting-single-item">
+              <div class="thumb">
+                <div class="date">
+                  <h6>{{ event.date|date:"M" }} <span>{{ event.date|date:"d" }}</span></h6>
+                </div>
+                <a href="meeting-details.html"><img src="{{event.image.url}}" style="height:350px" alt=""></a>
+              </div>
+              <div class="down-content">
+                <a href=""><h4>{{event.name}}</h4></a>
+                <p class="description">
+                  {{event.description}}
+                </p>
+                <div class="row">
+                  <div class="col-lg-4">
+                    <div class="hours">
+                      <h5>Hours</h5>
+                      <p>{{event.date}}</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="location">
+                      <h5>Location</h5>
+                      <p>
+                        Fergana
+                      </p>
+                    </div>
+                  </div>
+                  <div class="col-lg-4">
+                    <div class="book now">
+                      <h5>Book Now</h5>
+                      <p>73 *** ** **</p>
+                    </div>
+                  </div>
+                  <div class="col-lg-12">
+                    <div class="share">
+                      <h5>Share:</h5>
+                      <ul>
+                        <li><a href="#">Facebook</a>,</li>
+                        <li><a href="#">Twitter</a>,</li>
+                        <li><a href="#">Linkedin</a>,</li>
+                        <li><a href="#">Behance</a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-12">
+            <div class="main-button-red">
+              <a href="{% url 'events' %}">Back To Meetings List</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer">
+      <p>Copyright © 2024 DizenStudios.</p>
+  </div>
+</section>
+
+{% endblock %}
